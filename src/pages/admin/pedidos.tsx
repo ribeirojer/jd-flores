@@ -29,7 +29,7 @@ export default function AdminPedidos() {
           <h1 className="font-display text-3xl font-medium">Pedidos</h1>
           <p className="text-sm text-muted-foreground">{pedidos.length} pedidos no período</p>
         </div>
-        <div className="overflow-hidden rounded-2xl border border-border/60 bg-card">
+        <div className="overflow-x-auto rounded-2xl border border-border/60 bg-card">
           <table className="w-full text-sm">
             <thead className="bg-muted/60 text-xs uppercase tracking-wider text-muted-foreground">
               <tr>

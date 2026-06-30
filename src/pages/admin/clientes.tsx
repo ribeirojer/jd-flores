@@ -19,7 +19,7 @@ export default function AdminClientes() {
           <h1 className="font-display text-3xl font-medium">Clientes</h1>
           <p className="text-sm text-muted-foreground">{clientes.length} empresas cadastradas</p>
         </div>
-        <div className="overflow-hidden rounded-2xl border border-border/60 bg-card">
+        <div className="overflow-x-auto rounded-2xl border border-border/60 bg-card">
           <table className="w-full text-sm">
             <thead className="bg-muted/60 text-xs uppercase tracking-wider text-muted-foreground">
               <tr>

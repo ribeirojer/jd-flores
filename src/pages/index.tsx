@@ -42,7 +42,7 @@ export default function Home() {
               <Leaf className="h-3.5 w-3.5 text-primary" />
               Atacado para floriculturas · desde 2008
             </span>
-            <h1 className="font-display text-5xl font-medium leading-[1.05] text-foreground sm:text-6xl md:text-7xl">
+            <h1 className="font-display text-4xl font-medium leading-[1.05] text-foreground sm:text-5xl md:text-7xl">
               Embalagens para <span className="italic text-primary">Floriculturas</span> no Atacado.
             </h1>
             <p className="max-w-xl text-lg leading-relaxed text-muted-foreground">

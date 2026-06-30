@@ -15,7 +15,7 @@ function InstagramIcon({ className }: { className?: string }) {
 export function Footer() {
   return (
     <footer className="mt-24 border-t border-border/60 bg-muted/40">
-      <div className="mx-auto grid max-w-7xl gap-10 px-6 py-14 md:grid-cols-4">
+      <div className="mx-auto grid max-w-7xl gap-8 px-6 py-14 md:gap-10 md:grid-cols-4">
         <div className="space-y-4 md:col-span-1">
           <Logo />
           <p className="text-sm leading-relaxed text-muted-foreground">

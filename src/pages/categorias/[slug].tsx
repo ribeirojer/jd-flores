@@ -35,7 +35,7 @@ export default function CategoriaSlug() {
               <Link href="/categorias" className="hover:text-primary">Categorias</Link> /{" "}
               <span className="text-foreground">{cat.nome}</span>
             </nav>
-            <h1 className="mt-3 font-display text-5xl font-medium md:text-6xl">{cat.nome}</h1>
+            <h1 className="mt-3 font-display text-3xl font-medium sm:text-4xl md:text-6xl">{cat.nome}</h1>
             <p className="mt-3 max-w-lg text-muted-foreground">{cat.desc}</p>
           </div>
           <div className="overflow-hidden rounded-3xl border border-border/60">

@@ -15,6 +15,7 @@ export default function Produtos() {
   const [cats, setCats] = useState<string[]>([]);
   const [preco, setPreco] = useState<number[]>([400]);
   const [disp, setDisp] = useState<"todos" | "estoque" | "encomenda">("todos");
+  const [filtrosAberto, setFiltrosAberto] = useState(false);
 
   const lista = produtos.filter((p) => {
     if (q && !p.nome.toLowerCase().includes(q.toLowerCase())) return false;
@@ -53,7 +54,19 @@ export default function Produtos() {
         </div>
 
         <div className="grid gap-8 lg:grid-cols-[260px_1fr]">
-          <aside className="space-y-7 self-start rounded-2xl border border-border/60 bg-card p-6 lg:sticky lg:top-24">
+          <div className="lg:hidden">
+            <button
+              onClick={() => setFiltrosAberto(!filtrosAberto)}
+              className="flex w-full items-center justify-center gap-2 rounded-full border border-border bg-card py-2.5 text-sm font-medium hover:bg-muted"
+            >
+              <SlidersHorizontal className="h-4 w-4 text-primary" />
+              Filtros
+              <span className="text-xs text-muted-foreground">
+                {cats.length > 0 || preco[0] < 400 || disp !== "todos" ? "(ativos)" : ""}
+              </span>
+            </button>
+          </div>
+          <aside className={`space-y-7 self-start rounded-2xl border border-border/60 bg-card p-6 lg:sticky lg:top-24 ${filtrosAberto ? "block" : "hidden lg:block"}`}>
             <div className="flex items-center gap-2 text-sm font-semibold">
               <SlidersHorizontal className="h-4 w-4 text-primary" /> Filtros
             </div>

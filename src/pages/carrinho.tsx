@@ -277,7 +277,7 @@ export default function Carrinho() {
               <div className="mb-3 flex items-center gap-2 text-sm font-semibold">
                 <HelpCircle className="h-4 w-4 text-primary" /> Informações de frete
               </div>
-              <div className="overflow-hidden rounded-xl border border-border/60">
+              <div className="overflow-x-auto rounded-xl border border-border/60">
                 <table className="w-full text-xs">
                   <thead className="bg-muted/60 uppercase tracking-wider text-muted-foreground">
                     <tr>
