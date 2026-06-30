@@ -29,10 +29,9 @@ export default function Contato() {
             <h1 className="mt-3 font-display text-5xl font-medium leading-tight md:text-6xl">Vamos conversar.</h1>
             <p className="mt-4 text-muted-foreground">Equipe pronta para entender o que sua floricultura precisa — em estoque ou sob encomenda.</p>
             <ul className="mt-8 space-y-4 text-sm">
-              <Row icon={Phone} title="Telefone" v="(47) 3000-0000" />
-              <Row icon={MessageCircle} title="WhatsApp" v="Falar no WhatsApp" href="https://wa.me/message/DGJ56I645AGPD1" />
-              <Row icon={Mail} title="E-mail" v="comercial@jdflores.com.br" />
-              <Row icon={InstagramIcon} title="Instagram" v="@jdfloreseplantas" />
+              <Row icon={Phone} title="Telefone" v="(47) 9698-0463" />
+              <Row icon={MessageCircle} title="WhatsApp" v="Falar no WhatsApp" href="https://wa.me/554796980463" />
+              <Row icon={InstagramIcon} title="Instagram" v="@jdfloreseplantas" href="https://www.instagram.com/jd_floreseplantas/" />
               <Row icon={MapPin} title="Endereço" v="Rua Joaquim Couto, 209 — Joinville/SC" />
             </ul>
           </div>

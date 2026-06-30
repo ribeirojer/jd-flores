@@ -26,30 +26,29 @@ export function Header() {
   return (
     <header className="sticky top-0 z-40 border-b border-border/60 bg-background/85 backdrop-blur supports-[backdrop-filter]:bg-background/70">
       <div className="hidden border-b border-border/60 bg-muted/50 py-1.5 text-xs text-muted-foreground md:block">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6">
-          <span>Venda exclusiva para CNPJ · Entregas para todo o Sul do Brasil</span>
-          <Link href="/cadastro" className="font-medium text-foreground hover:text-primary">
+        <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-1 px-4 sm:px-6">
+          <span className="leading-relaxed">Venda exclusiva para CNPJ · Entregas para todo o Sul do Brasil</span>
+          <Link href="/cadastro" className="font-medium text-foreground hover:text-primary whitespace-nowrap">
             Cadastre sua empresa →
           </Link>
         </div>
       </div>
-      <div className="mx-auto grid max-w-7xl grid-cols-[auto_1fr_auto] items-center gap-6 px-4 py-3.5 sm:px-6">
-        <Logo />
-        <nav className="hidden items-center justify-center gap-8 lg:flex">
-          {nav.map((n) => (
-            <Link
-              key={n.href}
-              href={n.href}
-              className="text-sm font-medium text-foreground/70 transition-colors hover:text-primary"
-            >
-              {n.label}
-            </Link>
-          ))}
-        </nav>
-        <div className="flex items-center gap-1.5">
-          <Button variant="ghost" size="icon" className="hidden sm:inline-flex">
-            <Search className="h-4 w-4" />
-          </Button>
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6">
+        <div className="flex items-center gap-4">
+          <Logo />
+          <nav className="hidden items-center gap-6 lg:flex">
+            {nav.map((n) => (
+              <Link
+                key={n.href}
+                href={n.href}
+                className="text-sm font-medium text-foreground/70 transition-colors hover:text-primary"
+              >
+                {n.label}
+              </Link>
+            ))}
+          </nav>
+        </div>
+        <div className="flex items-center gap-1">
           <Link href="/carrinho">
             <Button variant="ghost" size="icon" className="relative">
               <ShoppingBag className="h-4 w-4" />
@@ -58,7 +57,7 @@ export function Header() {
               </span>
             </Button>
           </Link>
-          <Link href="/cadastro" className="hidden md:block">
+          <Link href="/cadastro" className="hidden sm:block">
             <Button size="sm" className="rounded-full">Entrar</Button>
           </Link>
           <Sheet open={open} onOpenChange={setOpen}>

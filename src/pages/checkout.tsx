@@ -211,7 +211,7 @@ function EntregaForm({
           </div>
           <div className="space-y-1.5">
             <Label>Telefone *</Label>
-            <Input value={telefone} onChange={(e) => setTelefone(e.target.value)} className="h-11 rounded-xl" placeholder="(47) 99999-0000" />
+            <Input value={telefone} onChange={(e) => setTelefone(e.target.value)} className="h-11 rounded-xl" placeholder="(47) 96998-0463" />
           </div>
         </div>
       </div>

@@ -25,12 +25,16 @@ export function Footer() {
         <div>
           <h4 className="mb-4 text-sm font-semibold text-foreground">Contato</h4>
           <ul className="space-y-3 text-sm text-muted-foreground">
-            <li className="flex items-center gap-2"><Phone className="h-4 w-4 text-primary" /> (47) 3000-0000</li>
+            <li className="flex items-center gap-2"><Phone className="h-4 w-4 text-primary" /> (47) 9698-0463</li>
             <li className="flex items-center gap-2">
               <MessageCircle className="h-4 w-4 text-primary" />
-              <a href="https://wa.me/message/DGJ56I645AGPD1" target="_blank" rel="noopener noreferrer" className="hover:text-primary">WhatsApp</a>
+              <a href="https://wa.me/554796980463" target="_blank" rel="noopener noreferrer" className="hover:text-primary">WhatsApp</a>
             </li>
-            <li className="flex items-center gap-2"><InstagramIcon className="h-4 w-4 text-primary" /> @jdfloreseplantas</li>
+            <li className="flex items-center gap-2">
+              <a href="https://www.instagram.com/jd_floreseplantas/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-primary">
+                <InstagramIcon className="h-4 w-4 text-primary" /> @jdfloreseplantas
+              </a>
+            </li>
             <li className="flex items-start gap-2"><MapPin className="mt-0.5 h-4 w-4 text-primary" /> Rua Joaquim Couto, 209<br />Joinville — SC</li>
           </ul>
         </div>

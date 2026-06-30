@@ -69,7 +69,7 @@ export function AdminLayout({ children }: { children: ReactNode }) {
       <div className="border-t border-sidebar-border p-4">
         <div className="rounded-xl bg-primary/5 p-4 text-xs text-muted-foreground">
           <div className="mb-1 font-semibold text-foreground">Precisa de ajuda?</div>
-          Suporte JD: (47) 3000-0000
+          Suporte JD: (47) 9698-0463
         </div>
       </div>
     </>
