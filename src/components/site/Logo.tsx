@@ -12,7 +12,7 @@ export function Logo({ compact = false }: { compact?: boolean }) {
         </svg>
       </span>
       {!compact && (
-        <div className="hidden leading-tight sm:block">
+        <div className="leading-tight">
           <div className="font-display text-lg font-semibold text-foreground">JD Flores</div>
           <div className="text-[10px] uppercase tracking-[0.18em] text-muted-foreground">e Plantas · Atacado</div>
         </div>
