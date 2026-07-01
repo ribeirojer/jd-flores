@@ -185,8 +185,8 @@ export default function Carrinho() {
                   <h3 className="line-clamp-2 text-sm font-medium">{it.nome}</h3>
                   <div className="mt-1 text-xs text-muted-foreground">{formatBRL(it.preco)} / un.</div>
                   <div className="mt-3 flex items-center gap-2 sm:hidden">
-                    <QtyBox qtd={it.qtd} onChange={(q) => updateQty(it.id, q)} />
-                    <button className="ml-auto text-muted-foreground hover:text-destructive" onClick={() => removeItem(it.id)}>
+                    <QtyBox qtd={it.qtd} onChange={(q) => updateQty(it.id, q, it.variante)} />
+                    <button className="ml-auto text-muted-foreground hover:text-destructive" onClick={() => removeItem(it.id, it.variante)}>
                       <Trash2 className="h-4 w-4" />
                     </button>
                   </div>
@@ -194,8 +194,8 @@ export default function Carrinho() {
                 <div className="hidden flex-col items-end gap-3 sm:flex">
                   <div className="font-display text-lg font-semibold">{formatBRL(it.preco * it.qtd)}</div>
                   <div className="flex items-center gap-2">
-                    <QtyBox qtd={it.qtd} onChange={(q) => updateQty(it.id, q)} />
-                    <button className="rounded-full p-2 text-muted-foreground hover:bg-muted hover:text-destructive" onClick={() => removeItem(it.id)}>
+                    <QtyBox qtd={it.qtd} onChange={(q) => updateQty(it.id, q, it.variante)} />
+                    <button className="rounded-full p-2 text-muted-foreground hover:bg-muted hover:text-destructive" onClick={() => removeItem(it.id, it.variante)}>
                       <Trash2 className="h-4 w-4" />
                     </button>
                   </div>

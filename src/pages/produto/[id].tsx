@@ -4,9 +4,9 @@ import Head from "next/head";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { Button } from "@/components/ui/button";
-import { produtos, categorias, formatBRL } from "@/lib/data";
+import { produtos, categorias, formatBRL, type ProdutoVariante } from "@/lib/data";
 import { useCarrinho } from "@/lib/cart";
-import { Minus, Plus, ShoppingBag, Truck, Shield, RefreshCw, PackageCheck, AlertCircle } from "lucide-react";
+import { Minus, Plus, ShoppingBag, Truck, Shield, RefreshCw, PackageCheck, AlertCircle, Check } from "lucide-react";
 import { useState } from "react";
 
 export default function ProdutoDetalhe() {
@@ -31,14 +31,20 @@ function ProdutoContent({ p }: { p: typeof produtos[number] }) {
   const cat = categorias.find((c) => c.slug === p.categoria);
   const [qtd, setQtd] = useState(1);
   const [added, setAdded] = useState(false);
+  const [varianteSel, setVarianteSel] = useState<ProdutoVariante | null>(
+    p.variantes?.length === 1 ? p.variantes[0] : null
+  );
   const { addItem } = useCarrinho();
   const router = useRouter();
 
   const handleAddToCart = () => {
-    addItem(p.id, qtd);
+    if (p.variantes && !varianteSel) return;
+    addItem(p.id, qtd, varianteSel?.nome);
     setAdded(true);
     setTimeout(() => setAdded(false), 2000);
   };
+
+  const precoFinal = varianteSel?.preco ?? p.preco;
 
   return (
     <div className="min-h-screen bg-background">
@@ -81,7 +87,7 @@ function ProdutoContent({ p }: { p: typeof produtos[number] }) {
               </span>
               <h1 className="mt-3 font-display text-4xl font-medium leading-tight md:text-5xl">{p.nome}</h1>
               <div className="mt-4 flex items-baseline gap-3">
-                <span className="font-display text-4xl font-semibold text-primary">{formatBRL(p.preco)}</span>
+                <span className="font-display text-4xl font-semibold text-primary">{formatBRL(precoFinal)}</span>
                 <span className="text-sm text-muted-foreground">por unidade · preço de atacado</span>
               </div>
             </div>
@@ -95,6 +101,53 @@ function ProdutoContent({ p }: { p: typeof produtos[number] }) {
               <div><span className="text-muted-foreground">Origem:</span> <strong>Nacional</strong></div>
             </div>
 
+            {p.variantes && p.variantes.length > 0 && (
+              <div className="rounded-2xl border border-border/60 bg-card p-5">
+                <div className="mb-3 flex items-center justify-between">
+                  <h3 className="text-sm font-semibold">
+                    Cor: <span className="text-primary">{varianteSel ? varianteSel.nome : "Selecione"}</span>
+                  </h3>
+                  {p.variantes.length > 1 && (
+                    <span className="text-xs text-muted-foreground">{p.variantes.length} opções</span>
+                  )}
+                </div>
+                <div className="flex flex-wrap gap-2.5">
+                  {p.variantes.map((v) => (
+                    <button
+                      key={v.nome}
+                      onClick={() => setVarianteSel(v)}
+                      title={v.nome}
+                      className={`relative grid h-9 w-9 place-items-center rounded-full border-2 transition-all hover:scale-110 ${
+                        varianteSel?.nome === v.nome
+                          ? "border-primary ring-2 ring-primary/30 scale-110"
+                          : "border-border hover:border-primary/50"
+                      }`}
+                    >
+                      <span
+                        className="h-6 w-6 rounded-full"
+                        style={{ backgroundColor: v.cor }}
+                      />
+                      {varianteSel?.nome === v.nome && (
+                        <Check
+                          className={`absolute h-3.5 w-3.5 ${
+                            v.cor === "#F5F5F5" || v.cor === "#A8A8A8" || v.cor === "#EAB308"
+                              ? "text-foreground"
+                              : "text-white"
+                          }`}
+                        />
+                      )}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {p.variantes && !varianteSel && (
+              <p className="text-xs text-warning flex items-center gap-2">
+                <AlertCircle className="h-3.5 w-3.5" /> Selecione uma cor antes de comprar
+              </p>
+            )}
+
             {p.estoque ? (
               <>
                 <div className="flex items-center gap-4">
@@ -107,9 +160,9 @@ function ProdutoContent({ p }: { p: typeof produtos[number] }) {
                       <Plus className="h-4 w-4" />
                     </Button>
                   </div>
-                  <Button size="lg" className="flex-1 rounded-full" onClick={handleAddToCart}>
+                  <Button size="lg" className="flex-1 rounded-full" onClick={handleAddToCart} disabled={!!p.variantes && !varianteSel}>
                     <ShoppingBag className="h-4 w-4" />
-                    {added ? "Adicionado ✓" : `Comprar — ${formatBRL(p.preco * qtd)}`}
+                    {added ? "Adicionado ✓" : `Comprar — ${formatBRL(precoFinal * qtd)}`}
                   </Button>
                 </div>
                 {added && (
